@@ -7,3 +7,11 @@ body {
   width: 580px;
 }
 
+#game {
+  background: url(../resources/bg.png);
+  
+  display: block;
+  border:1px solid #222;
+  box-shadow: 0 0 30px #000
+}
+
