@@ -228,3 +228,27 @@
       return _results;
     };
 
+    Level.prototype.update = function() {
+      var block, ninjas, row, x, y, _i, _j, _k, _l, _len, _len1, _len2, _len3, _ref, _ref1, _ref2, _results;
+      _ref = this.map;
+      for (y = _i = 0, _len = _ref.length; _i < _len; y = ++_i) {
+        row = _ref[y];
+        for (x = _j = 0, _len1 = row.length; _j < _len1; x = ++_j) {
+          block = row[x];
+          block.update(x, y, this);
+        }
+      }
+      _ref1 = this.ninjas;
+      for (_k = 0, _len2 = _ref1.length; _k < _len2; _k++) {
+        ninjas = _ref1[_k];
+        ninjas.update();
+      }
+      _ref2 = this.ninjas;
+      _results = [];
+      for (_l = 0, _len3 = _ref2.length; _l < _len3; _l++) {
+        ninjas = _ref2[_l];
+        _results.push(this.checkCollision(this.game.player, ninjas));
+      }
+      return _results;
+    };
+
