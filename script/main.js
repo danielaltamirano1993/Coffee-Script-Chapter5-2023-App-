@@ -197,3 +197,16 @@
         }
       }
     };
+
+    Level.prototype.getBlockIndex = function(x, y) {
+      return [Math.floor(x / gfx.tileW), Math.floor(y / gfx.tileH)];
+    };
+
+    Level.prototype.getBlockEdge = function(position, forVertical) {
+      var snapTo;
+      if (forVertical == null) {
+        forVertical = false;
+      }
+      snapTo = !forVertical ? gfx.tileW : gfx.tileH;
+      return utils.snap(position, snapTo);
+    };
