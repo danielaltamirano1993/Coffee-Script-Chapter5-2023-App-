@@ -210,3 +210,21 @@
       snapTo = !forVertical ? gfx.tileW : gfx.tileH;
       return utils.snap(position, snapTo);
     };
+
+    Level.prototype.getBlock = function(x, y) {
+      var xBlock, yBlock, _ref, _ref1;
+      _ref = this.getBlockIndex(x, y), xBlock = _ref[0], yBlock = _ref[1];
+      return ((_ref1 = this.map[yBlock]) != null ? _ref1[xBlock] : void 0) || new Rock();
+    };
+
+    Level.prototype.getBlocks = function() {
+      var coords, x, y, _i, _len, _ref, _results;
+      coords = 1 <= arguments.length ? __slice.call(arguments, 0) : [];
+      _results = [];
+      for (_i = 0, _len = coords.length; _i < _len; _i++) {
+        _ref = coords[_i], x = _ref[0], y = _ref[1];
+        _results.push(this.getBlock(x, y));
+      }
+      return _results;
+    };
+
