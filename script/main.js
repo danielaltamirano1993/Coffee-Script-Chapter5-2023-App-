@@ -183,3 +183,17 @@
       ninja = new Ninja(this, xPos, yPos, this.game.player);
       return this.ninjas.push(ninja);
     };
+
+    Level.prototype.addPlayer = function(x, y) {
+      return this.game.setPlayer(x * gfx.tileW, y * gfx.tileH, this);
+    };
+
+    Level.prototype.removeBlock = function(x, y, block) {
+      this.map[y][x] = new Block();
+      if (block.constructor === Treasure) {
+        if (--this.treasures === 0) {
+          alert("Level Complete!");
+          return game.reset();
+        }
+      }
+    };
