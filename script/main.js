@@ -252,3 +252,10 @@
       return _results;
     };
 
+    Level.prototype.checkCollision = function(p, b) {
+      if (p.x + p.w >= b.x && p.x <= b.x + b.w && p.y + p.h >= b.y && p.y <= b.y + b.h) {
+        alert("You are dead.");
+        return game.reset();
+      }
+    };
+
