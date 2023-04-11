@@ -22,3 +22,10 @@
       return Math.floor((Math.random() * range) + min);
     }
   };
+
+  gfx = {
+    tileW: 24,
+    tileH: 24,
+    init: function() {
+      var canvas;
+      canvas = document.querySelector("#game");
