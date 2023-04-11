@@ -176,3 +176,10 @@
       return this.w = this.map[0].length;
     };
 
+    Level.prototype.addNinja = function(x, y) {
+      var ninja, xPos, yPos;
+      xPos = x * gfx.tileW;
+      yPos = y * gfx.tileH;
+      ninja = new Ninja(this, xPos, yPos, this.game.player);
+      return this.ninjas.push(ninja);
+    };
