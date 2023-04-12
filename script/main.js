@@ -455,3 +455,6 @@
 
   })(Entity);
 
+  Ninja = (function(_super) {
+    __extends(Ninja, _super);
+    Ninja.prototype.state = "CRUISING";
