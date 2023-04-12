@@ -427,3 +427,15 @@
           this.dir = "RIGHT";
         }
       }
+      if (keys.down && this.onLadder) {
+        yo += this.speed;
+      }
+      if (keys.up && this.onLadder && !this.onTopOfLadder) {
+        yo -= this.speed;
+      }
+      if (keys.space) {
+        this.dig();
+      }
+      return this.move(xo, yo);
+    };
+
