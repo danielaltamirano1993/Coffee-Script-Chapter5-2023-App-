@@ -90,3 +90,8 @@
       }
     }
   };
+
+  document.addEventListener("keydown", function(e) {
+    return keys.trigger(e.keyCode, true);
+  }, false);
+
