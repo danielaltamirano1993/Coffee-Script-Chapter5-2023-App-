@@ -278,3 +278,27 @@
       return _results;
     };
 
+    Level.prototype.digAt = function(dir, x, y) {
+      var block, xb, yb, _ref;
+      _ref = this.getBlockIndex(x, y), xb = _ref[0], yb = _ref[1];
+      xb = xb + (dir === "RIGHT" ? 1 : -1);
+      if (yb + 1 > this.h || xb < 0 || xb > this.w - 1) {
+        return;
+      }
+      block = this.map[yb + 1][xb];
+      if (block.digIt != null) {
+        block.digIt();
+      }
+      if (block.constructor === Block) {
+        return this.map[yb + 1][xb] = new Gravel();
+      }
+    };
+
+    return Level;
+
+  })();
+
+  levels = [
+    {
+      name: "DIG and BUILD",
+      data: ".P................X.....\n@-@@.........@@@@@@@-@..\n.#..@@@.............#...\n.#.....@@.@@.....X..#...\n@OO#.........#@@...O#..^\n...#.........#......#.^O\n...#..@@-@@@@#..-@@@@@OO\n...#....#....#..#.......\n...#....#....#..#.......\n...#....#....#..#.......\n@-@@OOOOO.#.@@@@@#@@-@@@\n.#.X......#......#..#...\n.#...*....#......#..#...\n####..@@#@@..-@@@@@@@..*\n####....#....#.........#\n####....#....#.........#\nOOOOOOOOOOOOOOOOOOOOOOOO"
