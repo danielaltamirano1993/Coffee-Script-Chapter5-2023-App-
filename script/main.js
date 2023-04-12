@@ -99,3 +99,13 @@
     return keys.trigger(e.keyCode, false);
   }, false);
 
+  Level = (function() {
+
+    Level.prototype.w = 0;
+
+    Level.prototype.h = 0;
+
+    Level.prototype.treasures = 0;
+
+    Level.prototype.ninjas = [];
+
