@@ -366,6 +366,10 @@
       return this.checkNewPos(x, y);
     };
 
+    Entity.prototype.checkNewPos = function(origX, origY) {
+      var bl, block, br, nearBlocks, snapAmount, tl, touchingALadder, tr, _i, _len, _ref;
+      this.wasOnLadder = this.onLadder;
+      nearBlocks = (_ref = this.level.getBlocks([this.x, this.y], [this.x, this.y + this.h], [this.x + (this.w - 1), this.y], [this.x + (this.w - 1), this.y + this.h]), tl = _ref[0], bl = _ref[1], tr = _ref[2], br = _ref[3], _ref);
       for (_i = 0, _len = nearBlocks.length; _i < _len; _i++) {
         block = nearBlocks[_i];
         if (block.touchable) {
