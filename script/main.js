@@ -63,3 +63,12 @@
     }
   };
 
+  keys = {
+    up: false,
+    down: false,
+    left: false,
+    right: false,
+    space: false,
+    reset: function() {
+      return this.up = this.down = this.left = this.right = this.space = false;
+    },
