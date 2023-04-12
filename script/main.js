@@ -47,3 +47,19 @@
         return onload();
       };
     },
+    drawSprite: function(col, row, x, y, w, h, scale) {
+      if (w == null) {
+        w = 1;
+      }
+      if (h == null) {
+        h = 1;
+      }
+      if (scale == null) {
+        scale = 1;
+      }
+      w *= this.tileW;
+      h *= this.tileH;
+      return this.ctx.drawImage(this.sprites, col * w, row * h, w, h, x, y, w * scale, h * scale);
+    }
+  };
+
