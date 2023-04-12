@@ -259,3 +259,22 @@
       }
     };
 
+    Level.prototype.render = function(gfx) {
+      var block, ninjas, row, x, y, _i, _j, _k, _len, _len1, _len2, _ref, _ref1, _results;
+      _ref = this.map;
+      for (y = _i = 0, _len = _ref.length; _i < _len; y = ++_i) {
+        row = _ref[y];
+        for (x = _j = 0, _len1 = row.length; _j < _len1; x = ++_j) {
+          block = row[x];
+          block.render(gfx, x * gfx.tileW, y * gfx.tileH);
+        }
+      }
+      _ref1 = this.ninjas;
+      _results = [];
+      for (_k = 0, _len2 = _ref1.length; _k < _len2; _k++) {
+        ninjas = _ref1[_k];
+        _results.push(ninjas.render(gfx));
+      }
+      return _results;
+    };
+
