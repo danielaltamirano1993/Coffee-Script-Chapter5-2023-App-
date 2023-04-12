@@ -488,3 +488,18 @@
           x -= this.speed;
           this.dir = "LEFT";
       }
+      if (--this.time < 0) {
+        newMove = utils.rand(5);
+        this.time = utils.rand(20, 40);
+        this.subState = (function() {
+          switch (newMove) {
+            case 0:
+            case 1:
+              return "LEFT";
+            case 2:
+            case 3:
+              return "RIGHT";
+            default:
+              return "IDLE";
+          }
+        })();
