@@ -126,3 +126,15 @@
           row = _ref[_i];
           _results.push(row.split(""));
         }
+        return _results;
+      })();
+      this.map = (function() {
+        var _i, _len, _results;
+        _results = [];
+        for (y = _i = 0, _len = asciiMap.length; _i < _len; y = ++_i) {
+          row = asciiMap[y];
+          _results.push((function() {
+            var _j, _len1, _results1;
+            _results1 = [];
+            for (x = _j = 0, _len1 = row.length; _j < _len1; x = ++_j) {
+              col = row[x];
