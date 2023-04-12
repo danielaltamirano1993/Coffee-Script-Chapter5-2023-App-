@@ -393,3 +393,11 @@
           }
         }
       }
+      this.onTopOfLadder = this.onLadder && !(tl.climbable || tr.climbable) && (this.y + this.h) % gfx.tileH === 0;
+      if (!this.onLadder && !this.falling) {
+        if (!(bl.solid || br.solid || bl.climbable || br.climbable)) {
+          return this.falling = true;
+        }
+      }
+    };
+
