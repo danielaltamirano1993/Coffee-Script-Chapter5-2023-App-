@@ -439,3 +439,7 @@
       return this.move(xo, yo);
     };
 
+    Player.prototype.render = function(gfx) {
+      return gfx.drawSprite(0, 0, this.x, this.y);
+    };
+
