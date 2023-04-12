@@ -503,3 +503,15 @@
               return "IDLE";
           }
         })();
+      }
+      if (this.onLadder && !this.wasOnLadder) {
+        if (Math.random() < 0.5) {
+          this.state = "HUNTING";
+        }
+      }
+      if (py === this.y) {
+        this.state = "HUNTING";
+      }
+      return [x, y];
+    };
+
