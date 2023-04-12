@@ -72,3 +72,21 @@
     reset: function() {
       return this.up = this.down = this.left = this.right = this.space = false;
     },
+    trigger: function(keyCode, isDown) {
+      switch (keyCode) {
+        case 37:
+          return this.left = isDown;
+        case 39:
+          return this.right = isDown;
+        case 38:
+          return this.up = isDown;
+        case 40:
+          return this.down = isDown;
+        case 32:
+          if (isDown) {
+            console.log("FIRE AWAY!");
+          }
+          return this.space = isDown;
+      }
+    }
+  };
