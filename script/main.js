@@ -114,3 +114,15 @@
       this.load(level);
     }
 
+    Level.prototype.load = function(level) {
+      var asciiMap, col, row, x, y;
+      this.ninjas = [];
+      this.treasures = 0;
+      asciiMap = (function() {
+        var _i, _len, _ref, _results;
+        _ref = level.data.split("\n");
+        _results = [];
+        for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+          row = _ref[_i];
+          _results.push(row.split(""));
+        }
