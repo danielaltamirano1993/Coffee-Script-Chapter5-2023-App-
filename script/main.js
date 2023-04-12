@@ -413,3 +413,17 @@
       Player.__super__.constructor.apply(this, arguments);
       this.dir = "RIGHT";
     }
+
+    Player.prototype.update = function() {
+      var xo, yo;
+      xo = yo = 0;
+      if (!this.falling) {
+        if (keys.left) {
+          xo -= this.speed;
+          this.dir = "LEFT";
+        }
+        if (keys.right) {
+          xo += this.speed;
+          this.dir = "RIGHT";
+        }
+      }
