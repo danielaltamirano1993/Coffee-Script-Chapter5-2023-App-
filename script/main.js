@@ -95,3 +95,7 @@
     return keys.trigger(e.keyCode, true);
   }, false);
 
+  document.addEventListener("keyup", function(e) {
+    return keys.trigger(e.keyCode, false);
+  }, false);
+
