@@ -476,3 +476,15 @@
       return gfx.drawSprite(0, 1, this.x, this.y);
     };
 
+    Ninja.prototype.cruise = function(px, py) {
+      var newMove, x, y;
+      x = y = 0;
+      switch (this.subState) {
+        case "RIGHT":
+          x += this.speed;
+          this.dir = "RIGHT";
+          break;
+        case "LEFT":
+          x -= this.speed;
+          this.dir = "LEFT";
+      }
