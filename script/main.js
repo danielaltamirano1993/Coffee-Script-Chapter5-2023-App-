@@ -109,3 +109,8 @@
 
     Level.prototype.ninjas = [];
 
+    function Level(level, game) {
+      this.game = game;
+      this.load(level);
+    }
+
