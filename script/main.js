@@ -456,10 +456,23 @@
   })(Entity);
 
   Ninja = (function(_super) {
+
     __extends(Ninja, _super);
+
     Ninja.prototype.state = "CRUISING";
+
     Ninja.prototype.subState = "IDLE";
+
     function Ninja(level, x, y, player) {
       this.player = player;
       Ninja.__super__.constructor.call(this, level, x, y);
     }
+
+    Ninja.prototype.speed = 3;
+
+    Ninja.prototype.time = 0;
+
+    Ninja.prototype.render = function(gfx) {
+      return gfx.drawSprite(0, 1, this.x, this.y);
+    };
+
