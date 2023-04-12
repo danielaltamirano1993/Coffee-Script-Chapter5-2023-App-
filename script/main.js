@@ -405,3 +405,11 @@
 
   })();
 
+  Player = (function(_super) {
+
+    __extends(Player, _super);
+
+    function Player() {
+      Player.__super__.constructor.apply(this, arguments);
+      this.dir = "RIGHT";
+    }
