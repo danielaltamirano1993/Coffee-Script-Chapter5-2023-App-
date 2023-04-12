@@ -138,3 +138,41 @@
             _results1 = [];
             for (x = _j = 0, _len1 = row.length; _j < _len1; x = ++_j) {
               col = row[x];
+              switch (col) {
+                case "@":
+                  _results1.push(new Dirt());
+                  break;
+                case "O":
+                  _results1.push(new Rock());
+                  break;
+                case "P":
+                  this.addPlayer(x, y);
+                  _results1.push(new Block());
+                  break;
+                case "X":
+                  this.addNinja(x, y);
+                  _results1.push(new Block());
+                  break;
+                case "*":
+                  this.treasures++;
+                  _results1.push(new Treasure());
+                  break;
+                case "#":
+                  _results1.push(new Ladder());
+                  break;
+                case "-":
+                  _results1.push(new Ladder(true));
+                  break;
+                default:
+                  _results1.push(new Block());
+              }
+            }
+            return _results1;
+          }).call(this));
+        }
+        return _results;
+      }).call(this);
+      this.h = this.map.length;
+      return this.w = this.map[0].length;
+    };
+
