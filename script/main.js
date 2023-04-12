@@ -366,3 +366,26 @@
       return this.checkNewPos(x, y);
     };
 
+      for (_i = 0, _len = nearBlocks.length; _i < _len; _i++) {
+        block = nearBlocks[_i];
+        if (block.touchable) {
+          block.touch(this);
+        }
+      }
+      this.onLadder = false;
+      touchingALadder = nearBlocks.some(function(block) {
+        return block.climbable;
+      });
+      if (touchingALadder) {
+        this.onLadder = true;
+        this.falling = false;
+        if (origY !== 0) {
+          snapAmount = utils.snap(this.x, gfx.tileW);
+          if (!(bl.climbable || tl.climbable)) {
+            this.x = snapAmount + gfx.tileW;
+          }
+          if (!(br.climbable || tr.climbable)) {
+            this.x = snapAmount;
+          }
+        }
+      }
