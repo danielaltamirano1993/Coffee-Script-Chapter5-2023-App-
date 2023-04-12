@@ -443,3 +443,15 @@
       return gfx.drawSprite(0, 0, this.x, this.y);
     };
 
+    Player.prototype.dig = function() {
+      if (utils.now() - this.lastDig < (6 * 1000)) {
+        return;
+      }
+      this.level.digAt(this.dir, this.x, this.y);
+      return this.lastDig = utils.now();
+    };
+
+    return Player;
+
+  })(Entity);
+
