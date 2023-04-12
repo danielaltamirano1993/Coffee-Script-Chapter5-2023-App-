@@ -318,6 +318,24 @@
     Entity.prototype.speed = 4;
 
     Entity.prototype.dir = "LEFT";
+
+    function Entity(level, x, y) {
+      this.level = level;
+      this.x = x;
+      this.y = y;
+      this.falling = true;
+      this.wasFalling = true;
+      this.onLadder = false;
+      this.wasOnLadder = false;
+      this.onTopOfLadder = false;
+    }
+
+    Entity.prototype.update = function() {};
+
+    Entity.prototype.render = function(gfx) {
+      return gfx.ctx.fillText("?", this.x, this.y);
+    };
+
     Entity.prototype.move = function(x, y) {
       var bl, br, tl, tr, xo, xv, yo, yv, _ref, _ref1;
       if (this.falling) {
