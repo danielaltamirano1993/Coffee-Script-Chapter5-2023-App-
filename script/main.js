@@ -580,3 +580,11 @@
     return Block;
 
   })();
+
+  Dirt = (function(_super) {
+
+    __extends(Dirt, _super);
+
+    function Dirt() {
+      return Dirt.__super__.constructor.apply(this, arguments);
+    }
