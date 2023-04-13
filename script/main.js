@@ -539,3 +539,25 @@
       }
       return [x, y];
     };
+
+    Ninja.prototype.update = function() {
+      var px, py, xo, yo, _ref;
+      _ref = (function() {
+        var _ref;
+        if (this.falling) {
+          return [0, 0];
+        } else {
+          _ref = this.player, px = _ref.x, py = _ref.y;
+          switch (this.state) {
+            case "CRUISING":
+              return this.cruise(px, py);
+            case "HUNTING":
+              return this.hunt(px, py);
+          }
+        }
+      }).call(this), xo = _ref[0], yo = _ref[1];
+      return this.move(xo, yo);
+    };
+
+    return Ninja;
+
