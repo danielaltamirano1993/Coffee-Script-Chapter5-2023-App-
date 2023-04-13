@@ -609,3 +609,15 @@
         return this.solid = true;
       }
     };
+
+    return Dirt;
+
+  })(Block);
+
+  Rock = (function(_super) {
+
+    __extends(Rock, _super);
+
+    function Rock() {
+      return Rock.__super__.constructor.apply(this, arguments);
+    }
