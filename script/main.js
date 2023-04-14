@@ -750,3 +750,10 @@
       if (!this.running) {
         return;
       }
+      gfx.clear();
+      this.update();
+      this.render();
+      return setTimeout((function() {
+        return game.tick();
+      }), 33);
+    },
