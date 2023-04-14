@@ -716,3 +716,27 @@
 
   })(Block);
 
+  this.game = {
+    init: function() {
+      if (!gfx.init()) {
+        alert("Sorry, no canvas");
+        return;
+      }
+      return gfx.load(function() {
+        return game.reset();
+      });
+    },
+    stop: function() {
+      return this.running = false;
+    },
+    start: function() {
+      return this.running = true;
+    },
+    reset: function() {
+      this.player = new Player;
+      this.level = new Level(levels[0], this);
+      keys.reset();
+      if (!this.running) {
+        this.start();
+        return this.tick();
+      }
