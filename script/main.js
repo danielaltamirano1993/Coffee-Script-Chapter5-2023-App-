@@ -644,3 +644,16 @@
       this.yOff = Math.random() * Math.PI;
     }
 
+    Treasure.prototype.touch = function(entity) {
+      if (entity.constructor === Player) {
+        return this.collected = true;
+      }
+    };
+
+    Treasure.prototype.update = function(x, y, level) {
+      this.yOff += Math.PI / 24;
+      if (this.collected) {
+        return level.removeBlock(x, y, this);
+      }
+    };
+
