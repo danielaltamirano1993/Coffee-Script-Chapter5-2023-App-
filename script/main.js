@@ -740,3 +740,13 @@
         this.start();
         return this.tick();
       }
+    },
+    setPlayer: function(x, y, level) {
+      this.player.level = level;
+      this.player.x = x;
+      return this.player.y = y;
+    },
+    tick: function() {
+      if (!this.running) {
+        return;
+      }
