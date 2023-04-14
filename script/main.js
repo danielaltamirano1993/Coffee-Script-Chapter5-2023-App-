@@ -757,3 +757,14 @@
         return game.tick();
       }), 33);
     },
+    update: function() {
+      this.level.update();
+      return this.player.update();
+    },
+    render: function() {
+      this.level.render(gfx);
+      return this.player.render(gfx);
+    }
+  };
+
+}).call(this);
