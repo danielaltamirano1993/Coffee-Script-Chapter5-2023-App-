@@ -686,3 +686,20 @@
 
   })(Block);
 
+  Gravel = (function(_super) {
+
+    __extends(Gravel, _super);
+
+    function Gravel() {
+      return Gravel.__super__.constructor.apply(this, arguments);
+    }
+
+    Gravel.prototype.solid = true;
+
+    Gravel.prototype.digTime = 100;
+
+    Gravel.prototype.update = function(x, y, level) {
+      if (--this.digTime < 0) {
+        return level.removeBlock(x, y, this);
+      }
+    };
