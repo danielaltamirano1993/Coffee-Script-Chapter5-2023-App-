@@ -621,3 +621,14 @@
     function Rock() {
       return Rock.__super__.constructor.apply(this, arguments);
     }
+
+    Rock.prototype.solid = true;
+
+    Rock.prototype.render = function(gfx, x, y) {
+      return gfx.drawSprite(4, 0, x, y);
+    };
+
+    return Rock;
+
+  })(Block);
+
