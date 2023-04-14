@@ -682,3 +682,7 @@
       return gfx.drawSprite(this.frame, 0, x, y);
     };
 
+    return Ladder;
+
+  })(Block);
+
