@@ -667,3 +667,18 @@
 
   })(Block);
 
+  Ladder = (function(_super) {
+
+    __extends(Ladder, _super);
+
+    Ladder.prototype.climbable = true;
+
+    function Ladder(top) {
+      this.top = top;
+      this.frame = top ? 6 : 5;
+    }
+
+    Ladder.prototype.render = function(gfx, x, y) {
+      return gfx.drawSprite(this.frame, 0, x, y);
+    };
+
