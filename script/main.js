@@ -703,3 +703,16 @@
         return level.removeBlock(x, y, this);
       }
     };
+
+    Gravel.prototype.render = function(gfx, x, y) {
+      var oldAlpha;
+      oldAlpha = gfx.ctx.globalAlpha;
+      gfx.ctx.globalAlpha = this.digTime / 50;
+      gfx.drawSprite(4, 2, x, y);
+      return gfx.ctx.globalAlpha = oldAlpha;
+    };
+
+    return Gravel;
+
+  })(Block);
+
