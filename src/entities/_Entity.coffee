@@ -61,3 +61,15 @@ class Entity
     # check the new position!
     @checkNewPos x, y
   
+  checkNewPos: (origX, origY) ->
+    @wasOnLadder = @onLadder
+    # check edges and underfoot
+    nearBlocks = [tl, bl, tr, br] = @level.getBlocks(
+      [@x, @y],
+      [@x, @y + @h],
+      [@x + (@w - 1), @y],
+      [@x + (@w - 1), @y + @h])
+    
+    # Collect any touchables
+    block.touch @ for block in nearBlocks when block.touchable
+    
