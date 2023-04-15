@@ -58,3 +58,13 @@ class Level
     Math.floor y / gfx.tileH
   ]
       
+  getBlockEdge: (position, forVertical = false) ->
+    snapTo = if not forVertical then gfx.tileW else gfx.tileH
+    utils.snap position, snapTo
+  
+  getBlock: (x, y) -> 
+    [xBlock, yBlock] = @getBlockIndex x, y
+    @map[yBlock]?[xBlock] or new Rock()
+
+  getBlocks: (coords...) -> @getBlock x, y for [x, y] in coords
+  
