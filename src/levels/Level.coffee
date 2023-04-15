@@ -84,3 +84,11 @@ class Level
     p.y <= b.y + b.h
       alert "You are dead."
       game.reset()
+    
+  render: (gfx) ->
+    # Render the level blocks
+    for row, y in @map
+      for block, x in row
+        block.render gfx, x  * gfx.tileW, y  * gfx.tileH
+    ninjas.render gfx for ninjas in @ninjas
+
