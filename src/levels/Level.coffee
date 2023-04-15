@@ -76,3 +76,11 @@ class Level
     ninjas.update() for ninjas in @ninjas
         
     @checkCollision @game.player, ninjas for ninjas in @ninjas
+    
+  checkCollision: (p, b) ->
+    if p.x + p.w >= b.x and
+    p.x <= b.x + b.w and
+    p.y + p.h >= b.y and
+    p.y <= b.y + b.h
+      alert "You are dead."
+      game.reset()
