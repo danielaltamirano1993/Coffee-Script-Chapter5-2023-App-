@@ -73,3 +73,19 @@ class Entity
     # Collect any touchables
     block.touch @ for block in nearBlocks when block.touchable
     
+    # Touching ladder logic
+    @onLadder = false
+    touchingALadder = nearBlocks.some (block) -> block.climbable
+    
+    if touchingALadder
+      @onLadder = true
+      @falling = false
+      
+      # Snap to ladders if trying to go up or down
+      if origY isnt 0
+        snapAmount = utils.snap @x, gfx.tileW
+        if not (bl.climbable or tl.climbable)
+          @x = snapAmount + gfx.tileW
+        if not (br.climbable or tr.climbable)
+          @x = snapAmount
+          
