@@ -68,3 +68,11 @@ class Level
 
   getBlocks: (coords...) -> @getBlock x, y for [x, y] in coords
   
+  update: ->
+    # Update the level blocks
+    for row, y in @map
+      for block, x in row
+        block.update  x, y, @
+    ninjas.update() for ninjas in @ninjas
+        
+    @checkCollision @game.player, ninjas for ninjas in @ninjas
