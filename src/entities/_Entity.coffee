@@ -48,3 +48,16 @@ class Entity
       [xv + (@w - 1), @y],
       [xv + (@w - 1), @y + (@h - 1)])
     
+    # 5. If overlapping edges, move entity back a little
+    if x < 0 and (tl.solid or bl.solid)
+      xo = @level.getBlockEdge(@x) - @x
+    if x > 0 and (tr.solid or br.solid)
+      xo = @level.getBlockEdge(xv + (@w - 1)) - @x - @w
+      
+    # 6. Finally, add the allowed movement to the current position
+    @x += xo
+    @y += yo
+    
+    # check the new position!
+    @checkNewPos x, y
+  
