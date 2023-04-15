@@ -13,3 +13,9 @@ gfx =
     @sprites = new Image()
     @sprites.src = "resources/sprites.png"
     @sprites.onload = -> onload()
+  drawSprite: (col, row, x, y, w = 1, h = 1, scale = 1) ->
+    w *= @tileW
+    h *= @tileH
+    @ctx.drawImage @sprites, 
+      col * w, row * h, w, h,
+      x, y, w * scale, h * scale
