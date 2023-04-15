@@ -1,0 +1,9 @@
+#!/bin/sh
+
+xargs -t coffee -j ../script/main.js -w -c << EOF
+_utils.coffee
+gfx.coffee
+keys.coffee
+levels/Level.coffee
+levels/levels.coffee
+entities/_Entity.coffee
