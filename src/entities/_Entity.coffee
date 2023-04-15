@@ -34,3 +34,17 @@ class Entity
       [@x + (@w - 1), yv],
       [@x + (@w - 1), yv + (@h - 1)])
     
+    # 3. If collision occurs, move entity back to edge
+    if y < 0 and (tl.solid or tr.solid)
+      yo = @level.getBlockEdge(@y, "VERT") - @y
+    if y > 0 and (bl.solid or br.solid)
+      yo = @level.getBlockEdge(yv + (@h - 1), "VERT") - @y - @h
+      @falling = false # Add this line to stop falling!
+      
+    # 4. Check possible block collisions due to horizontal movement
+    [tl, bl, tr, br] = @level.getBlocks(
+      [xv, @y],
+      [xv, @y + (@h - 1)],
+      [xv + (@w - 1), @y],
+      [xv + (@w - 1), @y + (@h - 1)])
+    
