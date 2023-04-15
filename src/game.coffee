@@ -28,3 +28,10 @@
     @render()
     setTimeout (-> game.tick()), 33
     
+  update: ->
+    @level.update()
+    @player.update()
+    
+  render: ->
+    @level.render gfx
+    @player.render gfx
