@@ -46,3 +46,15 @@ class Level
   addPlayer: (x, y) ->
     @game.setPlayer x * gfx.tileW, y * gfx.tileH, @
     
+  removeBlock: (x, y, block) ->
+    @map[y][x] = new Block()
+    if block.constructor is Treasure
+      if --@treasures == 0
+        alert "Level Complete!"
+        game.reset()
+
+  getBlockIndex: (x, y) -> [
+    Math.floor x / gfx.tileW
+    Math.floor y / gfx.tileH
+  ]
+      
