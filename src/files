@@ -6,3 +6,10 @@ levels/levels.coffee
 entities/_Entity.coffee
 entities/Player.coffee
 entities/Ninja.coffee
+blocks/_Block.coffee
+blocks/Dirt.coffee
+blocks/Rock.coffee
+blocks/Treasure.coffee
+blocks/Ladder.coffee
+blocks/Gravel.coffee
+game.coffee
