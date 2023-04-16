@@ -16,3 +16,8 @@
       @start()
       @tick()
     
+  setPlayer: (x, y, level) ->
+    @player.level = level
+    @player.x = x
+    @player.y = y 
+
