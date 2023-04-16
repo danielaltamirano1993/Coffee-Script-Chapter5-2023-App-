@@ -29,3 +29,11 @@ class Ninja extends Entity
     if @onLadder and not @wasOnLadder
       @state = "HUNTING" if Math.random() < 0.5
         
+    # Spotted the player� run at them!
+    @state = "HUNTING" if py == @y
+        
+    [x, y]
+    
+  hunt: (px, py) ->
+    x = y = 0
+    
