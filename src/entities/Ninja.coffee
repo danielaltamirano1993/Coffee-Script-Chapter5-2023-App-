@@ -37,3 +37,17 @@ class Ninja extends Entity
   hunt: (px, py) ->
     x = y = 0
     
+    # Do hunting logic
+    if py is @y or @onTopOfLadder 
+      if px > @x
+        x += @speed 
+        @dir = "RIGHT"
+      else
+        x -= @speed
+        @dir = "LEFT"
+    else if @onLadder
+      y -= @speed if not @onTopOfLadder and py < @y
+      y += @speed if py > @y
+    else
+      @state = "CRUISING"
+      @subState = "LEFT"
