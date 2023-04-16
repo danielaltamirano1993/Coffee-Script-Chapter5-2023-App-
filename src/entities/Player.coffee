@@ -17,3 +17,14 @@ class Player extends Entity
     yo += @speed if keys.down and @onLadder
     yo -= @speed if keys.up and @onLadder and not @onTopOfLadder
 
+    @dig() if keys.space
+
+    @move xo, yo
+  render: (gfx) ->
+    gfx.drawSprite 0, 0, @x, @y
+
+  dig: ->
+    return if utils.now() - @lastDig < (6 * 1000) # 6 seconds
+
+    @level.digAt @dir, @x, @y
+    @lastDig = utils.now()
